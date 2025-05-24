@@ -8,6 +8,7 @@ on:
 jobs:
   MyFirstJob:
     runs-on: ubuntu-latest
+    permissions: write-all
     steps:
       - run: echo "HI to github workflows"
       - name: Checkout
