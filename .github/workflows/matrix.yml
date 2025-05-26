@@ -8,7 +8,7 @@ on:
 
 jobs:
   matrix_job:
-    strategy:
+    srategy:
       fail-fast: false
       max-parallel: 3
       matrix:
@@ -17,16 +17,16 @@ jobs:
 
     name: "MatrixExample"
     runs-on: ${{matrix.os_version}}
-    - steps:
-      uses: actions/setup-node@3.9.1
-      with:
-        node-version: ${{matrix.node_version}}
+    steps:
+      - uses: actions/setup-node@3.9.1
+        with:
+          node-version: ${{matrix.node_version}}
 
   doneJob:
     name: "Job done"
     runs-on: ubuntu-latest
     needs: matrix
-    - steps:
-      run: |
-        echo "Jobs ${{github.job}} is notifying that job: matrix is done"
+    steps:
+      - run: |
+          echo "Jobs ${{github.job}} is notifying that job: matrix is done"
   
