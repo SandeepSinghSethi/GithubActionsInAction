@@ -41,6 +41,6 @@ jobs:
           echo "loglevel: ${{inputs.loglevel}}"
           echo "Inputag: ${{inputs.tag}}"
           echo "Env: ${{inputs.environment}}"
-      - name: Workflow Inputs
-      if: ${{github.event_name == 'workflow_dispatch'}}
+        name: Workflow Inputs
+        if: ${{github.event_name == 'workflow_dispatch'}}
           
