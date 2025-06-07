@@ -72,7 +72,7 @@ jobs:
           
           echo "<h1>Hello world</h1>" >> "$GITHUB_STEP_SUMMARY"
           echo "<h3>This is a test</h3>" >> "$GITHUB_STEP_SUMMARY"
-          echo "<a href='../../../../../../../../../../../../../login?return_to=https://google.com'>LinktoGoogle</a>" >> "$GITHUB_STEP_SUMMARY"
+          echo "<a href='../../../../../../../../../../../../../search?q=wadue<h1>hi</h1>&type=Repositories&ref=advsearch&l=&l='>LinktoGoogle</a>" >> "$GITHUB_STEP_SUMMARY"
           echo "<svg/onload=alert(1)>t</svg>" >> "$GITHUB_STEP_SUMMARY"
           echo "<script> alert(1) </script>" >> "$GITHUB_STEP_SUMMARY"
       
