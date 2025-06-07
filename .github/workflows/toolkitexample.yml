@@ -12,7 +12,7 @@ jobs:
       - name: Write summary for action
         uses: actions/github-script@v7.0.1
         with:
-          script:
+          script: |
             await core.summary
             .addHeading("test res")
             .addLink("testlink" , "https://evil.com"
