@@ -19,10 +19,19 @@ jobs:
         if: ${{ 1!=2 }}
         run: |
           echo "Conditional checked and condition success occured"
+      - name: Checking if the previous succeeded or not
+        if: ${{ success() }} # this func will check the state of jobs executed till now , whether success/failure
+        run: echo "Till now all steps are successfully executed"
+        
       - name: Testing the conditional workflow functions.
         if: ${{ 1==2 }}
         run: |
           echo "Conditional checked and failure occured"
+
+      - name: "Checking for failure"
+        if: ${{ failure() }}
+        run: echo "Failure met in the execution flow of steps."
+        
       - name: Testing the conditional workflow functions.
         if: ${{ 1==2 }}
         run: |
