@@ -49,11 +49,24 @@ jobs:
         name: Generates masked random secret.
         run: | 
           the_secret=$((RANDOM))
+          echo "the secret before masking is : $the_secret"
           echo "::add-mask::$the_secret"
           echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
       - name: "Prints the secret in the previous step"
         run: |
           echo "The secret number is : ${{ steps.sets-a-secret.outputs.secret-number }}"
     
-      
+  adding-secret-global-env:
+    runs-on: ubuntu-latest
+    name: stores some secret to global env var.
+    steps:
+      - id: sets-the-secret
+        run: |
+          the_secret=$((RANDOM))
+          echo "The secret before masking : $the_secret"
+          echo "::add-mask::$the_secret"
+          echo "global_secret:$the_secret" >> "$GITHUB_ENV"
+      - name: "Accessing the secret via global env"
+        run: |
+          echo "The secret val from global env is : ${{ env.global_secret }}"
       
