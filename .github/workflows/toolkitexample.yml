@@ -15,6 +15,6 @@ jobs:
           script: |
             await core.summary
             .addHeading("test res")
-            .addLink("testlink" , "https://evil.com"
+            .addLink("testlink" , "https://evil.com")
             .write()
   
