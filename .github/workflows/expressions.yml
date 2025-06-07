@@ -65,7 +65,7 @@ jobs:
           the_secret=$((RANDOM))
           echo "The secret before masking : $the_secret"
           echo "::add-mask::$the_secret"
-          echo "global_secret:$the_secret" >> "$GITHUB_ENV"
+          echo "global_secret=$the_secret" >> "$GITHUB_ENV"
       - name: "Accessing the secret via global env"
         run: |
           echo "The secret val from global env is : ${{ env.global_secret }}"
