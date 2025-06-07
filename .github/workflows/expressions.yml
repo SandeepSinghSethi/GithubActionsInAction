@@ -40,3 +40,20 @@ jobs:
         if: ${{ 1==2 }}
         run: |
           echo "Conditional checked and failure occured"
+
+  add-a-secret:
+    runs-on: ubuntu-latest
+    name: Adding a secret within the workflow
+    steps:
+      - id: sets-a-secret # used to access like js in the file later on
+        name: Generates masked random secret.
+        run: | 
+          the_secret=$((RANDOM))
+          echo "::add-mask::$the_secret"
+          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
+      - name: "Prints the secret in the previous step"
+        run: |
+          echo "The secret number is : ${{ steps.sets-a-secret.outputs.secret-number }}"
+    
+      
+      
