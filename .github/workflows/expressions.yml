@@ -1,0 +1,17 @@
+name: Testing expressions in workflows and workflow functions.
+
+on: 
+  push:
+    branches: 
+    - main
+  workflow_dispatch:
+
+jobs:
+  ifop:
+    if: ${{ github..ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    name: Testing if the workflow is pushed to the main branch or not.
+    
+    steps:
+      - run: |
+          echo  "Deploying to branch : ${{github.ref}}"
