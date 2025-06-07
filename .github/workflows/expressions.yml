@@ -15,3 +15,19 @@ jobs:
     steps:
       - run: |
           echo  "Deploying to branch : ${{github.ref}}"
+      - name: Testing the conditional workflow functions.
+        if: ${{ 1!=2 }}
+        if: ${{ success() }}
+        run: |
+          echo "Conditional checked and condition success occured"
+      - name: Testing the conditional workflow functions.
+        if: ${{ 1==2 }}
+        if: ${{ failure() }}
+        run: |
+          echo "Conditional checked and failure occured"
+      - name: Testing the conditional workflow functions.
+        if: ${{ 1==2 }}
+        if: ${{ success() }}
+        
+        run: |
+          echo "Conditional checked and failure occured"
